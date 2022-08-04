@@ -1,0 +1,7 @@
+﻿@using RandomPasscodeGenerator.Controllers;
+@* onclick=@HomeController.Generate() *@
+
+@model string;
+<h2>Random passcode (passcode #@ViewBag.Count)</h2>
+<h1>@ViewBag.RandomPassword</h1>
+    <a href="generate"><button>Generate</button></a>
