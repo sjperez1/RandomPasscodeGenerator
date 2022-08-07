@@ -23,8 +23,9 @@ public class HomeController : Controller
         {
             HttpContext.Session.SetInt32("Count", 0);
         }
-        ViewBag.Count = HttpContext.Session.GetInt32("Count");
-        ViewBag.RandomPassword = HttpContext.Session.GetString("passRandom");
+        // can also send via ViewBag, but not needed because session is accessible to the View if the following is put in _ViewImports.cshtml file: @using Microsoft.AspNetCore.Http
+        // ViewBag.Count = HttpContext.Session.GetInt32("Count");
+        // ViewBag.RandomPassword = HttpContext.Session.GetString("passRandom");
         return View("Index");
     }
 
@@ -39,7 +40,7 @@ public class HomeController : Controller
         }
 
         HttpContext.Session.SetString("passRandom", passwordString);
-        HttpContext.Session.SetInt32("Count", (int)HttpContext.Session.GetInt32("Count") +1);
+        HttpContext.Session.SetInt32("Count", (int)HttpContext.Session.GetInt32("Count") + 1);
 
         return RedirectToAction("Index");
     }

@@ -2,6 +2,6 @@
 @* onclick=@HomeController.Generate() *@
 
 @model string;
-<h2>Random passcode (passcode #@ViewBag.Count)</h2>
-<h1>@ViewBag.RandomPassword</h1>
+<h2>Random passcode (passcode #@Context.Session.GetInt32("Count"))</h2>
+<h1>@Context.Session.GetString("passRandom")</h1>
     <a href="generate"><button>Generate</button></a>
